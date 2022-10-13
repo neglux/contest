@@ -8,4 +8,5 @@ export const Page = styled.section`
   height: 100vh;
 
   padding: 1rem 4rem;
+  overflow-x: hidden;
 `;
