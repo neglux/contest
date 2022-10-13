@@ -10,6 +10,8 @@ const theme = {
   colors: {
     text: palettes.palette1.colorTextLight,
     headerBorder: palettes.palette1.colorTextDark,
+    linkText: palettes.palette1.colorDarkenTextLight,
+    linkHover: palettes.palette1.colorTextLight,
     body: palettes.palette1.colorSecondary,
   },
 };

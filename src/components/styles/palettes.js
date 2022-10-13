@@ -4,5 +4,6 @@ export const palettes = {
     colorSecondary: "#3A4750",
     colorTextDark: "#303841",
     colorTextLight: "#EEEEEE",
+    colorDarkenTextLight: "#969595",
   },
 };
