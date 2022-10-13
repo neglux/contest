@@ -9,12 +9,7 @@ const Footer = () => {
     <StyledFooter className="footer">
       <ul className="footer__list">
         <li className="footer__item">
-          <a
-            className="footer__link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="footer__link" href="#">
             <BiInfoCircle />
             about
           </a>
@@ -44,12 +39,7 @@ const Footer = () => {
       </ul>
       <ul className="footer__list">
         <li className="footer__item">
-          <a
-            className="footer__link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="footer__link" href="#">
             <FaPalette />
             theme
           </a>
