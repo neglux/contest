@@ -9,6 +9,7 @@ import { palettes } from "./components/styles/palettes";
 const theme = {
   colors: {
     text: palettes.palette1.colorTextLight,
+    headerBorder: palettes.palette1.colorTextDark,
     body: palettes.palette1.colorSecondary,
   },
 };
