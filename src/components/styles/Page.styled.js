@@ -6,4 +6,6 @@ export const Page = styled.section`
 
   width: 100vw;
   height: 100vh;
+
+  padding: 1rem 4rem;
 `;
