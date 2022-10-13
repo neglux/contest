@@ -5,5 +5,6 @@ export const palettes = {
     colorTextDark: "#303841",
     colorTextLight: "#EEEEEE",
     colorDarkenTextLight: "#969595",
+    white: "#fff",
   },
 };
