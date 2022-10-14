@@ -2,9 +2,16 @@ import React from "react";
 import { StyledContest } from "./styles/Contest.styled";
 
 const Contest = (contest) => {
-  const { name, url, site } = contest;
-  const startTime = contest["start_time"];
-  const endTime = contest["end_time"];
+  const {
+    name,
+    url,
+    site,
+    startTime,
+    endTime,
+    isActive,
+    isPassed,
+    isUpcoming,
+  } = contest;
 
   const timeFormatOptions = {
     dateStyle: "full",
@@ -28,7 +35,17 @@ const Contest = (contest) => {
     <StyledContest href={url} target="_blank">
       <img className="contest__site-logo" src={logos[site]} alt="logo" />
       <aside className="contest__content">
-        <h2 className="contest__name">{name}</h2>
+        <div className="contest__title">
+          <h2 className="contest__name">{name}</h2>
+          <span className="contest__state">
+            {(function () {
+              if (isActive) return "Active";
+              if (isPassed) return "Passed";
+              if (isUpcoming) return "Upcoming";
+            })()}
+          </span>
+        </div>
+
         <div className="contest__duration">
           <span className="contest__time">
             <label>start</label>
