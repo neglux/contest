@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import useFetch from "./hooks/useFetch";
 
 import { dataHandler } from "./handlers/dataHandler";
+import Loading from "./components/Loading";
 
 function App() {
   const { isLoading, data } = useFetch("https://kontests.net/api/v1/all");
@@ -23,13 +24,16 @@ function App() {
       <Page>
         <Header />
         <Container>
-          {isLoading && <div>Loading</div>}
-          <Grid>
-            {dataHandler(data).map(
-              (contest, index) =>
-                contest && <Contest key={index} {...contest} />
-            )}
-          </Grid>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <Grid>
+              {dataHandler(data).map(
+                (contest, index) =>
+                  contest && <Contest key={index} {...contest} />
+              )}
+            </Grid>
+          )}
         </Container>
         <Footer />
       </Page>
