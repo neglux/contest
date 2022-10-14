@@ -1,55 +1,34 @@
-import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
+import { theme } from "./components/styles/theme";
+
+import { GlobalStyles } from "./components/styles/Global";
+import { Page } from "./components/styles/Page.styled";
+import { Container } from "./components/styles/Container.styled";
+import { Grid } from "./components/styles/Grid.styled";
+
+import Header from "./components/Header";
 import Contest from "./components/Contest";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
-import { Container } from "./components/styles/Container.styled";
-import { GlobalStyles } from "./components/styles/Global";
-import { Grid } from "./components/styles/Grid.styled";
-import { Page } from "./components/styles/Page.styled";
-import { palettes } from "./components/styles/palettes";
 
-const theme = {
-  colors: {
-    text: palettes.palette1.colorTextLight,
-    linkText: palettes.palette1.colorDarkenTextLight,
-    linkHover: palettes.palette1.colorTextLight,
-    body: palettes.palette1.colorSecondary,
-    contestBg: palettes.palette1.colorTextDark,
-    logoBg: palettes.palette1.white,
-    labelBg: palettes.palette1.colorSecondary,
-  },
-};
+import useFetch from "./hooks/useFetch";
+
+import { dataHandler } from "./handlers/dataHandler";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState([]);
-  const fetchData = async (url) => {
-    setIsLoading(true);
-    try {
-      const resp = await fetch(url);
-      if (!resp) throw new Error("Something went wrong");
-      const data = await resp.json();
-      setData(data);
-      setIsLoading(false);
-    } catch (err) {}
-  };
+  const { isLoading, data } = useFetch("https://kontests.net/api/v1/all");
 
-  useEffect(() => {
-    fetchData("https://kontests.net/api/v1/all");
-  }, []);
-
-  if (isLoading) return <div>Loading</div>;
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Page>
         <Header />
         <Container>
+          {isLoading && <div>Loading</div>}
           <Grid>
-            {data.map((contest, index) => (
-              <Contest key={index} {...contest} />
-            ))}
+            {dataHandler(data).map(
+              (contest, index) =>
+                contest && <Contest key={index} {...contest} />
+            )}
           </Grid>
         </Container>
         <Footer />
