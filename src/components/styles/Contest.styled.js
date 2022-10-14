@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledContest = styled.a`
   cursor: pointer;
-  align-self: start;
+  align-self: stretch;
 
   display: flex;
 
@@ -47,14 +47,36 @@ export const StyledContest = styled.a`
     &__content {
       display: flex;
       flex-direction: column;
+      width: 100%;
 
       font-size: 0.8rem;
     }
 
     &__name {
+      display: flex;
+      justify-content: space-between;
+
       flex: 1;
+      width: 100%;
 
       font-size: 1.2rem;
+    }
+
+    &__title {
+      display: flex;
+      margin-bottom: 0.5rem;
+    }
+
+    &__state {
+      align-self: flex-start;
+
+      margin-left: 1rem;
+      padding: 0.1rem 0.3rem;
+
+      font-weight: 400;
+
+      background-color: ${({ theme }) => theme.colors.labelBg};
+      border-radius: 2px;
     }
 
     &__duration {
