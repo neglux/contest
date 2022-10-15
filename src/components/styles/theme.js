@@ -9,5 +9,8 @@ export const theme = {
     contestBg: palettes.palette1.colorTextDark,
     logoBg: palettes.palette1.white,
     labelBg: palettes.palette1.colorSecondary,
+    tabsColor: palettes.palette1.colorDarkenTextLight,
+    tabsBg: palettes.palette1.colorTextDark,
+    tabItemHover: palettes.palette1.colorTextLight,
   },
 };
