@@ -18,9 +18,12 @@ import useFetch from "./hooks/useFetch";
 
 import { dataHandler } from "./handlers/dataHandler";
 import { filterHandler } from "./handlers/filterHandler";
+import Error from "./components/Error";
 
 function App() {
-  const { isLoading, data } = useFetch("https://kontests.net/api/v1/all");
+  const { isLoading, data, errorMsg } = useFetch(
+    "https://kontests.net/api/v1/all"
+  );
   const [filter, setFilter] = useState("all");
   return (
     <ThemeProvider theme={theme}>
@@ -32,13 +35,19 @@ function App() {
             <Loading />
           ) : (
             <>
-              <Tabs data={["Active", "Upcoming"]} setFilter={setFilter} />
-              <Grid>
-                {filterHandler(dataHandler(data), filter).map(
-                  (contest, index) =>
-                    contest && <Contest key={index} {...contest} />
-                )}
-              </Grid>
+              {!data ? (
+                <Error msg={errorMsg} />
+              ) : (
+                <>
+                  <Tabs data={["Active", "Upcoming"]} setFilter={setFilter} />
+                  <Grid>
+                    {filterHandler(dataHandler(data), filter).map(
+                      (contest, index) =>
+                        contest && <Contest key={index} {...contest} />
+                    )}
+                  </Grid>
+                </>
+              )}
             </>
           )}
         </Container>
