@@ -2,17 +2,22 @@ import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
   const [data, setData] = useState([]);
   const fetchData = async (url) => {
     setIsLoading(true);
     try {
       const resp = await fetch(url);
-      if (!resp) throw new Error("Something went wrong");
+      if (!resp.ok) throw new Error("Oops! Something went wrong..");
+
       const data = await resp.json();
-      setData(data);
+      if (data) setData(data);
+
       setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      setErrorMsg(err.message);
+      setData(null);
+      setIsLoading(false);
     }
   };
 
@@ -20,7 +25,7 @@ const useFetch = (url) => {
     fetchData(url);
   }, [url]);
 
-  return { isLoading, data };
+  return { isLoading, data, errorMsg };
 };
 
 export default useFetch;
