@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { StyledPagination } from "./styles/Pagination.styled";
 
+import { StyledPagination } from "./styles/Pagination.styled";
 import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
+
 import { useViewerContext } from "../contexts/ViewerContext";
+
+import { PaginationNav } from "../utilities/PaginationNav";
 
 const Pagination = () => {
   const { pageIndex, setPageIndex, data } = useViewerContext();
   const [active, setActive] = useState(pageIndex);
+
+  const nav = new PaginationNav(setActive, setPageIndex, data.length - 1);
 
   const activeStyle = {
     color: "#EEEEEE",
@@ -18,15 +23,7 @@ const Pagination = () => {
 
   return (
     <StyledPagination>
-      <button
-        className="btn"
-        onClick={() => {
-          if (pageIndex > 0) {
-            setActive(pageIndex - 1);
-            setPageIndex(pageIndex - 1);
-          }
-        }}
-      >
+      <button className="btn" onClick={() => nav.prevPage(pageIndex)}>
         <BiArrowFromRight />
         Prev
       </button>
@@ -36,24 +33,13 @@ const Pagination = () => {
             key={index}
             className="pag__ix btn"
             style={active === index ? activeStyle : {}}
-            onClick={() => {
-              setActive(index);
-              setPageIndex(index);
-            }}
+            onClick={() => nav.setPage(index)}
           >
             {index + 1}
           </li>
         ))}
       </ul>
-      <button
-        className="btn"
-        onClick={() => {
-          if (pageIndex < data.length - 1) {
-            setActive(pageIndex + 1);
-            setPageIndex(pageIndex + 1);
-          }
-        }}
-      >
+      <button className="btn" onClick={() => nav.nextPage(pageIndex)}>
         Next
         <BiArrowFromLeft />
       </button>
