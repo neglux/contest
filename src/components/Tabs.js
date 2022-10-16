@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyledTabs } from "./styles/Tabs.styled";
 
-const Tabs = ({ data, setFilter }) => {
+const Tabs = ({ data, setFilter, setPageIndex }) => {
   const [active, setActive] = useState(false);
 
   const activeStyle = {
@@ -16,6 +16,7 @@ const Tabs = ({ data, setFilter }) => {
           className="tabs__item"
           style={active === index ? activeStyle : {}}
           onClick={() => {
+            setPageIndex(0);
             setActive(index);
             setFilter(item.toLowerCase());
           }}
