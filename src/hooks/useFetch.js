@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(false);
   const [data, setData] = useState([]);
   const fetchData = async (url) => {
-    setIsLoading(true);
     try {
       const resp = await fetch(url);
       if (!resp.ok) throw new Error("Oops! Something went wrong..");
