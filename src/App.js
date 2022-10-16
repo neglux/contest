@@ -13,6 +13,8 @@ import Footer from "./components/Footer";
 
 import useFetch from "./hooks/useFetch";
 
+import { ViewerContextProvider } from "./contexts/ViewerContext";
+
 function App() {
   const { isLoading, data, errorMsg } = useFetch(
     "https://kontests.net/api/v1/all"
@@ -28,7 +30,13 @@ function App() {
             <Loading />
           ) : (
             <>
-              {!data ? <Error msg={errorMsg} /> : <ContestViewer data={data} />}
+              {!data ? (
+                <Error msg={errorMsg} />
+              ) : (
+                <ViewerContextProvider>
+                  <ContestViewer data={data} />
+                </ViewerContextProvider>
+              )}
             </>
           )}
         </Container>

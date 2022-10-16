@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 import { Grid } from "./styles/Grid.styled";
 
@@ -10,31 +10,25 @@ import { dataHandler } from "../handlers/dataHandler";
 import { filterHandler } from "../handlers/filterHandler";
 import { paginationHandler } from "../handlers/paginationHandler";
 
-const ContestViewer = ({ data }) => {
-  const [filter, setFilter] = useState("all");
-  const [pageIndex, setPageIndex] = useState(0);
+import { useViewerContext } from "../contexts/ViewerContext";
 
-  const paginatedData = paginationHandler(
-    filterHandler(dataHandler(data), filter)
-  );
+const ContestViewer = ({ data }) => {
+  const { pageIndex, filter, setData } = useViewerContext();
+
+  data = paginationHandler(filterHandler(dataHandler(data), filter));
+  useEffect(() => {
+    setData(data);
+  }, [filter]);
 
   return (
     <>
-      <Tabs
-        data={["All", "Active", "Upcoming"]}
-        setFilter={setFilter}
-        setPageIndex={setPageIndex}
-      />
+      <Tabs />
       <Grid>
-        {paginatedData[pageIndex].map(
+        {data[pageIndex].map(
           (contest, index) => contest && <Contest key={index} {...contest} />
         )}
       </Grid>
-      <Pagination
-        pageIndex={pageIndex}
-        setPageIndex={setPageIndex}
-        data={paginatedData}
-      />
+      <Pagination />
     </>
   );
 };

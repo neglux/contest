@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useViewerContext } from "../contexts/ViewerContext";
 import { StyledTabs } from "./styles/Tabs.styled";
 
-const Tabs = ({ data, setFilter, setPageIndex }) => {
-  const [active, setActive] = useState(false);
+const Tabs = () => {
+  const { tabs, setPageIndex, setFilter } = useViewerContext();
+  const [active, setActive] = useState(0);
 
   const activeStyle = {
     color: "#EEEEEE",
@@ -10,7 +12,7 @@ const Tabs = ({ data, setFilter, setPageIndex }) => {
 
   return (
     <StyledTabs className="tabs__list">
-      {data.map((item, index) => (
+      {tabs.map((item, index) => (
         <li
           key={index}
           className="tabs__item"

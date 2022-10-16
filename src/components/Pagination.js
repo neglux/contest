@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { StyledPagination } from "./styles/Pagination.styled";
 
 import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
+import { useViewerContext } from "../contexts/ViewerContext";
 
-const Pagination = ({ data, pageIndex, setPageIndex }) => {
-  const [active, setActive] = useState(false);
+const Pagination = () => {
+  const { pageIndex, setPageIndex, data } = useViewerContext();
+  const [active, setActive] = useState(pageIndex);
 
   const activeStyle = {
     color: "#EEEEEE",
@@ -29,7 +31,7 @@ const Pagination = ({ data, pageIndex, setPageIndex }) => {
         Prev
       </button>
       <ul className="pag__ix-box">
-        {data.map((item, index) => (
+        {data.map((_, index) => (
           <li
             key={index}
             className="pag__ix btn"
