@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { timeout } from "../utilities/timeout";
 
 const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -6,7 +7,7 @@ const useFetch = (url) => {
   const [data, setData] = useState([]);
   const fetchData = async (url) => {
     try {
-      const resp = await fetch(url);
+      const resp = await Promise.race([fetch(url), timeout(30)]);
       if (!resp.ok) throw new Error("Oops! Something went wrong..");
 
       const data = await resp.json();
