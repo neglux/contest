@@ -1,34 +1,12 @@
 import { StyledContest } from "./Contest.styled";
 
-const Contest = (contest) => {
-  const {
-    name,
-    url,
-    site,
-    startTime,
-    endTime,
-    isActive,
-    isPassed,
-    isUpcoming,
-  } = contest;
+import { timeHandler } from "../handlers/timeHandler";
+import { statusHandler } from "../handlers/statusHandler";
 
-  const timeFormatOptions = {
-    dateStyle: "full",
-  };
-  const logos = {
-    HackerRank:
-      "https://www.hackerrank.com/wp-content/uploads/2020/05/hackerrank_cursor_favicon_480px-150x150.png",
-    LeetCode:
-      "https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png",
-    "Kick Start":
-      "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
-    CodeForces:
-      "https://codeforces.org/s/72616/images/codeforces-sponsored-by-ton.png",
-    HackerEarth:
-      "https://static-fastly.hackerearth.com/newton/static/images/he-header-logo.svg",
-    AtCoder: "https://img.atcoder.jp/assets/atcoder.png",
-    CodeChef: "https://cdn.codechef.com/images/cc-logo.svg",
-  };
+import { logos } from "../data/logos";
+
+const Contest = (contest) => {
+  const { name, url, site, startTime, endTime, isActive, isUpcoming } = contest;
 
   return (
     <StyledContest href={url} target="_blank">
@@ -37,30 +15,18 @@ const Contest = (contest) => {
         <div className="contest__title">
           <h2 className="contest__name">{name}</h2>
           <span className="contest__state">
-            {(function () {
-              if (isActive) return "Active";
-              if (isPassed) return "Passed";
-              if (isUpcoming) return "Upcoming";
-            })()}
+            {statusHandler(isActive, isUpcoming)}
           </span>
         </div>
 
         <div className="contest__duration">
           <span className="contest__time">
             <label>start</label>
-            <span>
-              {new Intl.DateTimeFormat("en-US", timeFormatOptions).format(
-                new Date(startTime)
-              )}
-            </span>
+            <span>{timeHandler(startTime)}</span>
           </span>
           <span className="contest__time">
             <label>end</label>
-            <span>
-              {new Intl.DateTimeFormat("en-US", timeFormatOptions).format(
-                new Date(endTime)
-              )}
-            </span>
+            <span>{timeHandler(endTime)}</span>
           </span>
         </div>
       </aside>

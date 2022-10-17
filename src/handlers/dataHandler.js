@@ -20,7 +20,6 @@ export const dataHandler = (data) => {
       url: cont.url,
       site: cont.site,
       isActive: now > startTime && now < endTime,
-      isPassed: now > endTime,
       isUpcoming: now < startTime,
       startTime,
       endTime,
