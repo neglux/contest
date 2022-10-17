@@ -26,6 +26,10 @@ export const StyledTabs = styled.ul`
       :hover {
         color: ${({ theme }) => theme.colors.tabItemHover};
       }
+
+      &--active {
+        color: ${({ theme }) => theme.colors.tabItemHover};
+      }
     }
   }
 `;

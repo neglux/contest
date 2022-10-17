@@ -1,10 +1,12 @@
-import React from "react";
-import ContestViewer from "../components/ContestViewer";
-import Error from "../components/Error";
+import { Container } from "../layout/Container.styled";
+
 import Loading from "../components/Loading";
-import { Container } from "../components/styles/Container.styled";
-import { ViewerContextProvider } from "../contexts/ViewerContext";
+import Error from "../components/Error";
+import ContestViewer from "../components/ContestViewer";
+
 import useFetch from "../hooks/useFetch";
+
+import { ViewerContextProvider } from "../contexts/ViewerContext";
 
 const Home = () => {
   const { isLoading, data, errorMsg } = useFetch(

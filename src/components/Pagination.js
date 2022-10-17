@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-
-import { StyledPagination } from "./styles/Pagination.styled";
 import { BiArrowFromLeft, BiArrowFromRight } from "react-icons/bi";
 
-import { useViewerContext } from "../contexts/ViewerContext";
+import { StyledPagination } from "./Pagination.styled";
 
 import { PaginationNav } from "../utilities/PaginationNav";
+
+import { useEffect, useState } from "react";
+
+import { useViewerContext } from "../contexts/ViewerContext";
 
 const Pagination = () => {
   const { pageIndex, setPageIndex, data } = useViewerContext();

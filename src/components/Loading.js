@@ -1,6 +1,6 @@
-import React from "react";
 import { BiLoaderCircle } from "react-icons/bi";
-import { StyledLoading } from "./styles/Loading.styled";
+
+import { StyledLoading } from "./Loading.styled";
 
 const Loading = () => {
   return (

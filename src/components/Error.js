@@ -1,5 +1,4 @@
-import React from "react";
-import { StyledError } from "./styles/Error.styled";
+import { StyledError } from "./Error.styled";
 
 const Error = ({ msg }) => {
   return (

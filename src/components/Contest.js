@@ -1,5 +1,4 @@
-import React from "react";
-import { StyledContest } from "./styles/Contest.styled";
+import { StyledContest } from "./Contest.styled";
 
 const Contest = (contest) => {
   const {

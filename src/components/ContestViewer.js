@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-
-import { Grid } from "./styles/Grid.styled";
+import { Grid } from "../layout/Grid.styled";
 
 import Tabs from "./Tabs";
 import Contest from "./Contest";
@@ -9,6 +7,8 @@ import Pagination from "./Pagination";
 import { dataHandler } from "../handlers/dataHandler";
 import { filterHandler } from "../handlers/filterHandler";
 import { paginationHandler } from "../handlers/paginationHandler";
+
+import { useEffect } from "react";
 
 import { useViewerContext } from "../contexts/ViewerContext";
 

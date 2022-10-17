@@ -1,11 +1,10 @@
-import React from "react";
+import { StyledAbout } from "./About.styled";
+
+import { Container } from "../layout/Container.styled";
 
 import Title from "../components/Title";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-
-import { StyledAbout } from "../components/styles/About.styled";
-import { Container } from "../components/styles/Container.styled";
 
 import useFetch from "../hooks/useFetch";
 

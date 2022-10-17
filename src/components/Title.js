@@ -1,5 +1,6 @@
 import React from "react";
-import { StyledTitle } from "./styles/Title.styled";
+
+import { StyledTitle } from "./Title.styled";
 
 const Title = ({ title, subtitle }) => {
   return (

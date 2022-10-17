@@ -1,6 +1,4 @@
-import React from "react";
-import { StyledFooter } from "./styles/Footer.styled";
-
+import { Link } from "react-router-dom";
 import { FaPalette } from "react-icons/fa";
 import {
   BiCodeAlt,
@@ -9,7 +7,8 @@ import {
   BiData,
   BiCrown,
 } from "react-icons/bi";
-import { Link } from "react-router-dom";
+
+import { StyledFooter } from "./Footer.styled";
 
 const Footer = () => {
   return (
