@@ -1,8 +1,7 @@
 import { Container } from "../layout/Container.styled";
 
-import Loading from "../components/Loading";
-import Error from "../components/Error";
 import ContestViewer from "../components/ContestViewer";
+import List from "../components/List";
 
 import useFetch from "../hooks/useFetch";
 
@@ -15,19 +14,11 @@ const Home = () => {
 
   return (
     <Container>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          {!data ? (
-            <Error msg={errorMsg} />
-          ) : (
-            <ViewerContextProvider>
-              <ContestViewer data={data} />
-            </ViewerContextProvider>
-          )}
-        </>
-      )}
+      <List isLoading={isLoading} errorMsg={errorMsg}>
+        <ViewerContextProvider>
+          <ContestViewer data={data} />
+        </ViewerContextProvider>
+      </List>
     </Container>
   );
 };

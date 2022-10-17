@@ -3,8 +3,7 @@ import { StyledAbout } from "./About.styled";
 import { Container } from "../layout/Container.styled";
 
 import Title from "../components/Title";
-import Error from "../components/Error";
-import Loading from "../components/Loading";
+import List from "../components/List";
 
 import useFetch from "../hooks/useFetch";
 
@@ -20,24 +19,18 @@ const About = () => {
           title="About"
           subtitle="Coding competitions from 10+ websites in one place"
         />
-        {isLoading ? (
-          <Loading />
-        ) : (
+        <List isLoading={isLoading} errorMsg={errorMsg}>
           <ul className="about__list">
-            {errorMsg ? (
-              <Error msg={errorMsg} />
-            ) : (
-              data.map((el, index) => {
-                const [name, code, url] = el;
-                return (
-                  <li key={index} className="about__item">
-                    {name}
-                  </li>
-                );
-              })
-            )}
+            {data.map((el, index) => {
+              const [name, code, url] = el;
+              return (
+                <li key={index} className="about__item">
+                  {name}
+                </li>
+              );
+            })}
           </ul>
-        )}
+        </List>
       </StyledAbout>
     </Container>
   );
