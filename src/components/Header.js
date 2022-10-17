@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <img src={logo} alt="logo" />
-      <h1>CodingCompetitions</h1>
+      <h1>Contest</h1>
     </StyledHeader>
   );
 };
