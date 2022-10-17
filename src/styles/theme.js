@@ -13,6 +13,7 @@ export const theme = {
     tabsBg: palettes.palette1.colorTextDark,
     tabItemHover: palettes.palette1.colorTextLight,
     pagBtnText: palettes.palette1.colorDarkenTextLight,
+    pagBtnHover: palettes.palette1.colorTextLight,
     pagBtnBg: palettes.palette1.colorTextDark,
     titleBg: palettes.palette1.colorTextDark,
     titleBorder: palettes.palette1.colorTextLight,
