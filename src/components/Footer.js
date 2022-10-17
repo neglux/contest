@@ -2,22 +2,35 @@ import React from "react";
 import { StyledFooter } from "./styles/Footer.styled";
 
 import { FaPalette } from "react-icons/fa";
-import { BiCodeAlt, BiInfoCircle, BiCopyright, BiData } from "react-icons/bi";
+import {
+  BiCodeAlt,
+  BiInfoCircle,
+  BiCopyright,
+  BiData,
+  BiCrown,
+} from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <StyledFooter className="footer">
       <ul className="footer__list">
         <li className="footer__item">
-          <a className="footer__link" href="#">
+          <Link className="footer__link" to="/about">
             <BiInfoCircle />
             about
-          </a>
+          </Link>
+        </li>
+        <li className="footer__item">
+          <Link className="footer__link" to="/">
+            <BiCrown />
+            competitions
+          </Link>
         </li>
         <li className="footer__item">
           <a
             className="footer__link"
-            href="http://"
+            href="https://github.com/neglux/contest"
             target="_blank"
             rel="noopener noreferrer"
           >
