@@ -14,5 +14,8 @@ export const theme = {
     tabItemHover: palettes.palette1.colorTextLight,
     pagBtnText: palettes.palette1.colorDarkenTextLight,
     pagBtnBg: palettes.palette1.colorTextDark,
+    titleBg: palettes.palette1.colorTextDark,
+    titleBorder: palettes.palette1.colorTextLight,
+    logoColor: palettes.palette1.colorDarkenTextLight,
   },
 };
