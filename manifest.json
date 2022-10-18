@@ -1,0 +1,15 @@
+{
+  "short_name": "contest",
+  "name": "contest",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "20x16",
+      "type": "svg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
