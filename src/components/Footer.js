@@ -10,7 +10,12 @@ import {
 
 import { StyledFooter } from "./Footer.styled";
 
+import Modal from "./Modal";
+
+import { useState } from "react";
+
 const Footer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <StyledFooter className="footer">
       <ul className="footer__list">
@@ -50,8 +55,24 @@ const Footer = () => {
         </li>
       </ul>
       <ul className="footer__list">
-        <li className="footer__item">
-          <a className="footer__link" href="#">
+        <li className="footer__item modal-btn">
+          {isModalOpen && (
+            <Modal
+              data={[
+                { name: "default", ix: "1" },
+                { name: "nicew", ix: "2" },
+                { name: "xhle", ix: "3" },
+              ]}
+              closeModal={() => {
+                setIsModalOpen(false);
+              }}
+            />
+          )}
+          <a
+            className="footer__link"
+            href="#"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
             <FaPalette />
             theme
           </a>

@@ -40,4 +40,8 @@ export const StyledFooter = styled.footer`
       }
     }
   }
+
+  .modal-btn {
+    position: relative;
+  }
 `;
