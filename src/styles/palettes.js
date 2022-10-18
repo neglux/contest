@@ -10,10 +10,18 @@ export const palettes = {
 
   2: {
     colorPrimary: "#FB2576",
-    colorSecondary: "#150050",
-    colorTextDark: "#000000",
-    colorTextLight: "#3F0071",
+    colorSecondary: "#372948",
+    colorTextDark: "#251B37",
+    colorTextLight: "#FFECEF",
     colorDarkenTextLight: "#708291",
+    white: "#fff",
+  },
+  3: {
+    colorPrimary: "#FB2576",
+    colorSecondary: "#749F82",
+    colorTextDark: "#425F57",
+    colorTextLight: "#A8E890",
+    colorDarkenTextLight: "#e0e0e0",
     white: "#fff",
   },
 };
