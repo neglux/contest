@@ -20,13 +20,13 @@ const Footer = () => {
     <StyledFooter className="footer">
       <ul className="footer__list">
         <li className="footer__item">
-          <Link className="footer__link" to="/about">
+          <Link className="footer__link" to="contest/about">
             <BiInfoCircle />
             about
           </Link>
         </li>
         <li className="footer__item">
-          <Link className="footer__link" to="/">
+          <Link className="footer__link" to="contest/">
             <BiCrown />
             competitions
           </Link>
