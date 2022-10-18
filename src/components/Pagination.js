@@ -6,16 +6,18 @@ import { PaginationNav } from "../utilities/PaginationNav";
 
 import { useEffect, useState } from "react";
 
+import { useGlobalContext } from "../contexts/AppContext";
 import { useViewerContext } from "../contexts/ViewerContext";
 
 const Pagination = () => {
   const { pageIndex, setPageIndex, data } = useViewerContext();
+  const { theme } = useGlobalContext();
   const [active, setActive] = useState(pageIndex);
 
   const nav = new PaginationNav(setActive, setPageIndex, data.length - 1);
 
   const activeStyle = {
-    color: "#EEEEEE",
+    color: theme.colors.pagBtnHover,
   };
 
   useEffect(() => {
