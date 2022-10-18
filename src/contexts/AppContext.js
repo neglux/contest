@@ -34,6 +34,8 @@ export const AppProvider = ({ children }) => {
       titleBg: palette.colorTextDark,
       titleBorder: palette.colorTextLight,
       logoColor: palette.colorDarkenTextLight,
+      modalBg: palette.colorTextDark,
+      modalItemHover: palette.colorDarkenTextLight,
     },
   };
   useEffect(() => {
@@ -55,6 +57,8 @@ export const AppProvider = ({ children }) => {
         titleBg: palette.colorTextDark,
         titleBorder: palette.colorTextLight,
         logoColor: palette.colorDarkenTextLight,
+        modalBg: palette.colorTextDark,
+        modalItemHover: palette.colorDarkenTextLight,
       },
     };
   }, [palette]);
