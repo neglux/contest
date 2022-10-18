@@ -13,6 +13,7 @@ import { StyledFooter } from "./Footer.styled";
 import Modal from "./Modal";
 
 import { useState } from "react";
+import { palettes } from "../styles/palettes";
 
 const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,11 +59,7 @@ const Footer = () => {
         <li className="footer__item modal-btn">
           {isModalOpen && (
             <Modal
-              data={[
-                { name: "default", ix: "1" },
-                { name: "nicew", ix: "2" },
-                { name: "xhle", ix: "3" },
-              ]}
+              data={palettes}
               closeModal={() => {
                 setIsModalOpen(false);
               }}

@@ -11,13 +11,13 @@ import { useViewerContext } from "../contexts/ViewerContext";
 
 const Pagination = () => {
   const { pageIndex, setPageIndex, data } = useViewerContext();
-  const { theme } = useGlobalContext();
+  const { palette } = useGlobalContext();
   const [active, setActive] = useState(pageIndex);
 
   const nav = new PaginationNav(setActive, setPageIndex, data.length - 1);
 
   const activeStyle = {
-    color: theme.colors.pagBtnHover,
+    color: palette.colors.textLight,
   };
 
   useEffect(() => {

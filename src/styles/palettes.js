@@ -1,27 +1,41 @@
-export const palettes = {
-  1: {
-    colorPrimary: "#EA9215",
-    colorSecondary: "#3A4750",
-    colorTextDark: "#303841",
-    colorTextLight: "#ebf3fa",
-    colorDarkenTextLight: "#708291",
-    white: "#fff",
+export const palettes = [
+  {
+    id: 1,
+    name: "default",
+    type: "dark",
+    colors: {
+      primary: "#3A4750",
+      secondary: "#303841",
+      textDark: "#5e6c7d",
+      text: "#859aab",
+      textLight: "#ebf3fa",
+      white: "#fff",
+    },
   },
-
-  2: {
-    colorPrimary: "#FB2576",
-    colorSecondary: "#372948",
-    colorTextDark: "#251B37",
-    colorTextLight: "#FFECEF",
-    colorDarkenTextLight: "#708291",
-    white: "#fff",
+  {
+    id: 2,
+    name: "niew",
+    type: "dark",
+    colors: {
+      primary: "#372948",
+      secondary: "#251B37",
+      textDark: "#876969",
+      text: "#FFCACA",
+      textLight: "#FFECEF",
+      white: "#fff",
+    },
   },
-  3: {
-    colorPrimary: "#FB2576",
-    colorSecondary: "#749F82",
-    colorTextDark: "#425F57",
-    colorTextLight: "#A8E890",
-    colorDarkenTextLight: "#e0e0e0",
-    white: "#fff",
+  {
+    id: 3,
+    name: "xhlex",
+    type: "light",
+    colors: {
+      primary: "#9795CF",
+      secondary: "#64638F",
+      textDark: "#ABA9E9",
+      text: "#CBC9FF",
+      textLight: "#e4e3fc",
+      white: "#fff",
+    },
   },
-};
+];

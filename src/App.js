@@ -14,7 +14,30 @@ import About from "./pages/About";
 import { useGlobalContext } from "./contexts/AppContext";
 
 function App() {
-  const { theme } = useGlobalContext();
+  const { palette } = useGlobalContext();
+  const theme = {
+    colors: {
+      text: palette.colors.text,
+      linkText: palette.colors.textDark,
+      linkHover: palette.colors.text,
+      body: palette.colors.primary,
+      contestBg: palette.colors.secondary,
+      logoBg: palette.colors.white,
+      labelBg: palette.colors.primary,
+      tabsColor: palette.colors.textDark,
+      tabsBg: palette.colors.secondary,
+      tabItemHover: palette.colors.textLight,
+      pagBtnText: palette.colors.textDark,
+      pagBtnHover: palette.colors.textLight,
+      pagBtnBg: palette.colors.secondary,
+      titleBg: palette.colors.secondary,
+      titleBorder: palette.colors.textLight,
+      logoColor: palette.colors.textDark,
+      modalBg: palette.colors.secondary,
+      modalItemHover: palette.colors.textDark,
+    },
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />

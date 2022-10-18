@@ -13,11 +13,11 @@ const Modal = ({ data, closeModal }) => {
       <ul className="modal__list" onMouseLeave={() => closeModal()}>
         {data.map((el) => (
           <li
-            key={el.ix}
+            key={el.id}
             className="modal__item"
             onClick={() => {
               closeModal();
-              handleTheme(palettes, el.ix);
+              handleTheme(el.id);
             }}
           >
             {el.name}
