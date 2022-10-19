@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../data/queries";
 
 export const StyledPagination = styled.div`
   display: flex;
@@ -15,6 +16,9 @@ export const StyledPagination = styled.div`
       display: flex;
 
       margin: 0 1rem;
+      @media ${device.mobileS} {
+        margin: 0 0.2rem;
+      }
     }
 
     &__ix {
@@ -45,6 +49,10 @@ export const StyledPagination = styled.div`
     transition: all 0.2s;
     &:hover {
       color: ${({ theme }) => theme.colors.pagBtnHover};
+    }
+
+    @media ${device.mobileM} {
+      font-size: 0.8rem;
     }
   }
 `;

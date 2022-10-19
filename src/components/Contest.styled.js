@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
+import { device } from "../data/queries";
+
 export const StyledContest = styled.a`
   cursor: pointer;
   align-self: stretch;
 
   display: flex;
-
-  /* width: 500px; */
 
   padding: 1rem 2rem;
 
@@ -16,6 +16,11 @@ export const StyledContest = styled.a`
 
   transition: all 0.1s;
 
+  @media ${device.mobileL} {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
   :link,
   :visited {
     color: inherit;
@@ -42,6 +47,18 @@ export const StyledContest = styled.a`
       margin-right: 1rem;
       padding: 0.5rem;
       background-color: ${({ theme }) => theme.colors.logoBg};
+
+      @media ${device.mobileL} {
+        margin: 0;
+        margin-bottom: 2rem;
+        padding: 1rem;
+
+        width: 100%;
+      }
+
+      @media ${device.mobileS} {
+        padding: 1.5rem;
+      }
     }
 
     &__content {
@@ -60,6 +77,9 @@ export const StyledContest = styled.a`
       width: 100%;
 
       font-size: 1.2rem;
+      @media ${device.mobileS} {
+        font-size: 1rem;
+      }
     }
 
     &__title {

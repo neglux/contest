@@ -1,7 +1,5 @@
 import React from "react";
 
-import { palettes } from "../styles/palettes";
-
 import { StyledModal } from "./Modal.styled";
 
 import { useGlobalContext } from "../contexts/AppContext";
