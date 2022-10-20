@@ -12,9 +12,15 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 
 import { useGlobalContext } from "./contexts/AppContext";
+import { useEffect } from "react";
 
 function App() {
-  const { palette } = useGlobalContext();
+  const { palette, handleTheme } = useGlobalContext();
+
+  const config = parseInt(localStorage.getItem("themeConfig"));
+  useEffect(() => {
+    if (config) handleTheme(config);
+  }, []);
   const theme = {
     colors: {
       text: palette.colors.text,
