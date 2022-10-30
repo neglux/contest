@@ -21,14 +21,15 @@ const About = () => {
         />
         <List isLoading={isLoading} errorMsg={errorMsg}>
           <ul className="about__list">
-            {data.map((el, index) => {
-              const [name, code, url] = el;
-              return (
-                <li key={index} className="about__item">
-                  {name}
-                </li>
-              );
-            })}
+            {data &&
+              data.map((el, index) => {
+                const [name, code, url] = el;
+                return (
+                  <li key={index} className="about__item">
+                    {name}
+                  </li>
+                );
+              })}
           </ul>
         </List>
       </StyledAbout>
